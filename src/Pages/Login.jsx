@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useState }  from 'react'
 
 export default function Login() {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Submit form data (e.g., API call)
+        console.log('Login Data:', formData);
+        alert('Login successful!');
+    };
+
   return (
     <div>
       <h2>Login</h2>
